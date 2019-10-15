@@ -14,7 +14,7 @@ list_of_columns =['code', 'state', 'category', 'total exports', 'beef', 'pork', 
 mycolumn='cotton'
 myheading1 = f"Wow! That's a lot of {mycolumn}!"
 mygraphtitle = '2011 US Agriculture Exports by State'
-mycolorscale = 'yign' # Note: The error message will list possible color scales.
+mycolorscale = 'ylgn' # Note: The error message will list possible color scales.
 mycolorbartitle = "Millions USD"
 tabtitle = 'What?!'
 sourceurl = 'https://plot.ly/python/choropleth-maps/'
@@ -28,7 +28,7 @@ df = pd.read_csv('assets/usa-2011-agriculture.csv')
 
 fig = go.Figure(data=go.Choropleth(
     locations=df['code'], # Spatial coordinates
-    z = df[mycolumn].astype(float), # Data to be color-coded
+    z = df[mycolumn].astype(float), # Data to be color-coded #filter, cover the string to float can be color coded
     locationmode = 'USA-states', # set of locations match entries in `locations`
     colorscale = mycolorscale,
     colorbar_title = mycolorbartitle,
