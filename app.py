@@ -14,7 +14,7 @@ list_of_columns =['code', 'state', 'category', 'total exports', 'beef', 'pork', 
 mycolumn='cotton'
 myheading1 = f"Wow! That's a lot of {mycolumn}!"
 mygraphtitle = '2011 US Agriculture Exports by State'
-mycolorscale = 'ylgn' # Note: The error message will list possible color scales.
+mycolorscale = 'ylgn' # Note: The error message will list possible color scales. #can also name two colors, it will create gridiant. 
 mycolorbartitle = "Millions USD"
 tabtitle = 'What?!'
 sourceurl = 'https://plot.ly/python/choropleth-maps/'
@@ -26,10 +26,10 @@ githublink = 'https://github.com/caroleonor/dash-map-usa-agriculture/edit/master
 import pandas as pd
 df = pd.read_csv('assets/usa-2011-agriculture.csv')
 
-fig = go.Figure(data=go.Choropleth(
-    locations=df['code'], # Spatial coordinates
+fig = go.Figure(data=go.Choropleth( #zoom in zoom out
+    locations=df['code'], # Spatial coordinates look for some predefined data
     z = df[mycolumn].astype(float), # Data to be color-coded #filter, cover the string to float can be color coded
-    locationmode = 'USA-states', # set of locations match entries in `locations`
+    locationmode = 'USA-states', # set of locations match entries in `locations`, it will look for abbreviation of states
     colorscale = mycolorscale,
     colorbar_title = mycolorbartitle,
 ))
